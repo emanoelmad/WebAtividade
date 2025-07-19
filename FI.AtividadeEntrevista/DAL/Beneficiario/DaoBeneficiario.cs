@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using FI.AtividadeEntrevista.DML;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
 namespace FI.AtividadeEntrevista.DAL.Beneficiario
 {
+    /// <summary>
+    /// Classe de acesso a dados de Beneficiario
+    /// </summary>
     internal class DaoBeneficiario : AcessoDados
     {
         /// <summary>
@@ -14,7 +18,7 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiario
         {
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
-            parametros.Add(new System.Data.SqlClient.SqlParameter("ClienteId", beneficiario.ClienteId));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("IdCliente", beneficiario.IdCliente));
             parametros.Add(new System.Data.SqlClient.SqlParameter("Nome", beneficiario.Nome));
             parametros.Add(new System.Data.SqlClient.SqlParameter("CPF", beneficiario.CPF));
 
@@ -55,13 +59,13 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiario
         /// <summary>
         /// Lista todos os beneficiarios
         /// </summary>
-        internal List<DML.Beneficiario> Listar()
+        internal List<DML.Beneficiario> Listar(long clienteId)
         {
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Id", 0));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("IDClIENTE", clienteId));
 
-            DataSet ds = base.Consultar("FI_SP_ConsBeneficiario", parametros);
+            DataSet ds = base.Consultar("FI_SP_ConsBeneficiarioPorIdCliente", parametros);
             List<DML.Beneficiario> cli = Converter(ds);
 
             return cli;
@@ -106,7 +110,7 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiario
                     DML.Beneficiario ben = new DML.Beneficiario()
                     {
                         Id = row.Field<long>("Id"),
-                        ClienteId = row.Field<long>("ClienteId"),
+                        IdCliente = row.Field<long>("IdCliente"),
                         Nome = row.Field<string>("Nome"),
                         CPF = row.Field<string>("CPF")
                     };

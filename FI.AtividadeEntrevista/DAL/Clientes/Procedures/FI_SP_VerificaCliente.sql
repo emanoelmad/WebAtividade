@@ -1,0 +1,10 @@
+CREATE PROCEDURE FI_SP_VerificaCliente
+    @CPF NVARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT Id
+    FROM Clientes
+    WHERE CPF = @CPF
+END
