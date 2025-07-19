@@ -1,8 +1,9 @@
-﻿using System;
+﻿using FI.AtividadeEntrevista.DML;
+using FI.WebAtividadeEntrevista.Language;
+using FI.WebAtividadeEntrevista.Models;
+using FI.WebAtividadeEntrevista.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace WebAtividadeEntrevista.Models
 {
@@ -11,8 +12,10 @@ namespace WebAtividadeEntrevista.Models
     /// </summary>
     public class ClienteModel
     {
+        private List<BeneficiarioModel> _listaBeneficiario;
+
         public long Id { get; set; }
-        
+
         /// <summary>
         /// CEP
         /// </summary>
@@ -68,9 +71,20 @@ namespace WebAtividadeEntrevista.Models
         public string Telefone { get; set; }
 
         /// <summary>
-        /// Telefone
+        /// CPF
         /// </summary>
         [Required]
+        [ValidationCPF(ErrorMessageResourceType = typeof(ValidateMsg), ErrorMessageResourceName = "MSG01")]
         public string CPF { get; set; }
+
+        /// <summary>
+        /// Beneficiarios
+        /// </summary>
+        [Required]
+        public List<BeneficiarioModel> Beneficiarios
+        {
+            get => _listaBeneficiario = _listaBeneficiario == null ? new List<BeneficiarioModel>() : _listaBeneficiario;
+            set => _listaBeneficiario = value;
+        }
     }
 }
