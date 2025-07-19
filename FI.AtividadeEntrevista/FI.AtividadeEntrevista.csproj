@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Beneficiario\Procedures\FI_SP_AltBeneficiario.sql" />
+    <Content Include="DAL\Beneficiario\Procedures\FI_SP_AltBenef.sql" />
     <Content Include="DAL\Beneficiario\Procedures\FI_SP_ConsBeneficiarioCliente.sql" />
     <Content Include="DAL\Beneficiario\Procedures\FI_SP_DelBeneficiario.sql" />
     <Content Include="DAL\Beneficiario\Procedures\FI_SP_IncBeneficiario.sql" />
@@ -61,6 +61,7 @@
     <Content Include="DAL\Clientes\Procedures\FI_SP_DelCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_IncCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_PesqCliente.sql" />
+    <Content Include="DAL\Clientes\Procedures\FI_SP_VerificaCliente.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
