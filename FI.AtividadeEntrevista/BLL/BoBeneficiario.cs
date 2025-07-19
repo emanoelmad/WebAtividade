@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FI.AtividadeEntrevista.BLL
 {
-    internal class BoBeneficiario
+    public class BoBeneficiario
     {
         /// <summary>
         /// Inclui um novo Beneficiarios
@@ -50,10 +50,10 @@ namespace FI.AtividadeEntrevista.BLL
         /// <summary>
         /// Lista os beneficiarios
         /// </summary>
-        public List<DML.Beneficiario> Listar()
+        public List<DML.Beneficiario> Listar(long clienteId)
         {
             DaoBeneficiario ben = new DaoBeneficiario();
-            return ben.Listar();
+            return ben.Listar(clienteId);
         }
 
         /// <summary>
