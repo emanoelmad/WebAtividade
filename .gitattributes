@@ -1,0 +1,24 @@
+# Define tratamento automático de arquivos de texto
+* text=auto
+
+# Arquivos C# e de configuração usam LF
+*.cs text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.config text eol=lf
+
+# Arquivos de solução e projeto
+*.sln text eol=crlf
+*.csproj text eol=lf
+
+# Arquivos binários
+*.dll binary
+*.exe binary
+*.png binary
+*.jpg binary
+*.pdf binary
+
+# Ignora diffs em arquivos de migração do EF Core
+Migrations/*.Designer.cs linguist-generated
+Migrations/*.Snapshot.cs linguist-generated
+Migrations/*.cs linguist-generated
