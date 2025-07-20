@@ -54,6 +54,8 @@ namespace FI.AtividadeEntrevista.DAL
 
         internal bool VerificarExistencia(string CPF)
         {
+            CPF = CPF.Trim().Replace(".", "").Replace("-", "");
+
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
             parametros.Add(new System.Data.SqlClient.SqlParameter("CPF", CPF));
