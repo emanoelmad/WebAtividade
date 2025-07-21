@@ -37,10 +37,6 @@ project.fragment.lock.json
 # Publish folder
 publish/
 
-# Local database files
-*.mdf
-*.ldf
-
 # File-based secrets (evite versionar senhas!)
 appsettings.Development.json
 secrets.json
